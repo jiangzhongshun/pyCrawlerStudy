@@ -1,0 +1,63 @@
+$def with (result)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台数据管理</title>
+</head>
+<body>
+    <div id="container" align="center">
+        <h3>爬虫数据展示</h3>
+        <hr>
+        <div align="left">
+            <span>
+                <form action="" method="post">
+                    搜索条件：<input type="search" id="search" name="searchName" placeholder="请输入搜索条件"/>
+                    <input type="submit" id="submit" name="submit" value="搜索">
+                </form>
+
+            </span>
+            <br>
+            <span><a href="">添加图书</a></span>
+        </div>
+
+        <form>
+            <table border="1" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td>
+                        图书编号
+                    </td>
+                    <td>
+                        图书名称
+                    </td>
+                    <td>
+                        图书图片
+                    </td>
+                    <td>
+                        图书内容
+                    </td>
+                    <td>
+                        图书作者
+                    </td>
+                    <td>
+                        操作
+                    </td>
+                </tr>
+
+                $for book in result
+                <tr>
+                    <td>$book.get("bookid")</td>
+                    <td>$book.get("bookname")</td>
+                    <td>$book.get("bookimgsrc")</td>
+                    <td>$book.get("bookhref")</td>
+                    <td>$book.get("bookauthor")</td>
+                    <td>
+                        <a href="delBook?bookid=$book.get('bookid')" onclick="JavaScript:return config('来真的？删除')">删除</a>
+                        <a href="toUpdateBook?bookid=$book.get('bookid')" onclick="JavaScript:return config('修改？想好了您勒')">修改</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>

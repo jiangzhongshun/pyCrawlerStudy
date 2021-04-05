@@ -1,0 +1,22 @@
+$def with (loginUser)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <font>欢迎老板来玩，${loginUser.username}</font>
+
+    <div id="contrainer" align="center">
+        <form action="/showCrawler" method="post">
+        <h3>获取爬虫数据得采集</h3>
+        <hr>
+        <input type="url" id="geturl" name="geturl" placeholder="请输入你的网址" size="50">
+        <input type="submit" id="submit" name="submit" value="采集，啪">
+
+        </form>
+
+        <a href="showUser">用户数据后台管理</a>
+    </div>
+</body>
+</html>

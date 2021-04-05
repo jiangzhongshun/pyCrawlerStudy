@@ -1,0 +1,45 @@
+$def with (result)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户·后台数据管理</title>
+</head>
+<body>
+<div id="comtainer" align="center">
+    <h3>用户显示数据</h3>
+    <hr>
+     <div align="left">
+
+        <span>
+            <form action="findUserByNames" method="post">
+                搜索条件：<input type="search" id="search" name="searchName" placeholder="请输入搜索条件">
+                <input type="submit" id="submit" name="submit" value="搜索">
+            </form>
+        </span>
+        <br>
+        <span><a href="toAddUser">添加用户</a></span>
+    </div>
+    <form>
+        <table border="1" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td>用户编号</td>
+                <td>用户名称</td>
+                <td>用户密码</td>
+            </tr>
+
+            $for user in result
+            <tr>
+                <td>$user.get("id")</td>
+                <td>$user.get("username")</td>
+                <td>$user.get("password")</td>
+                <td>
+                    <a href="delUser?id=$user.get('id')" onclick="JavaScript:return confirm('你是来真的吗?要干掉小可爱?')">删除</a>
+                    <a href="toUpdateUser?id=$user.get('id')" onclick="JavaScript:return confirm('你确定要改变我嘛?')">修改</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+$def with (oldUser)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+</head>
+<h3>被修改的用户显示</h3>
+<body>
+    <form action="updateUser" method="post">
+        <table>
+
+            $for x in oldUser:
+            <tr>
+                <td>
+                    编号：
+                </td>
+                <td>
+                    <input type="text" name="id" id="id" value="$x.get('id')" readonly="true" style="width:450px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    姓名：
+                </td>
+                <td>
+                    <input type="text" name="username" id="username" value="$x.get('username')">
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    密码：
+                </td>
+                <td>
+                    <input type="text" name="password" id="password" value="$x.get('password')">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="submit" id="submit" value="提交">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
